@@ -8,11 +8,11 @@ const newGame = boardSize => ({
   answer: generateAnswer(boardSize)
 });
 
-export const changeGameMode = mode => ({
+export const changeGameMode = mode => { console.log(mode); return ({
   type: Actions.CHANGE_GAME_MODE,
   mode,
   ...newGame(getBoardSize(mode))
-});
+}); }
 
 export const resetGame = mode => ({
   type: Actions.RESET_GAME,

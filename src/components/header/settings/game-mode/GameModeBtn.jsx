@@ -8,13 +8,13 @@ const GameModeBtn = ({ gameMode, onModeChange }) => (
     className="gameModeBtn"
     onClick={() => onModeChange(gameMode)}
   >
-    {_.capitalize(gameMode)}
+    {_.capitalize(gameMode.string)}
   </button>
 );
 
 GameModeBtn.propTypes = {
   onModeChange: PropTypes.func.isRequired,
-  gameMode: PropTypes.string.isRequired
+  gameMode: PropTypes.object.isRequired
 };
 
 export default GameModeBtn;

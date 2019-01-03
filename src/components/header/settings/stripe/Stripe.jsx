@@ -18,8 +18,8 @@ const Stripe = ({ isGameOver, hasGuessed }) => (
         ? "Unlucky, try again"
         : ""}
     </span>
-    {Object.values(GameMode).map(({ mode }) => { return (
-      <GameModeBtn key={mode} gameMode={mode} style={{ justifySelf: "right" }}/>
+    {Object.values(GameMode).map(mode => { console.log(mode); return (
+      <GameModeBtn key={mode.string} gameMode={mode} style={{ justifySelf: "right" }}/>
     )})}
   </div>
 );
