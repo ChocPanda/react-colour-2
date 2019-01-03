@@ -8,8 +8,6 @@ const SquareStyle = {
   transition: "background-color 500ms",
   "--webkit-transition": "background-color 500ms",
   "--moz-transition": "background-color 500ms",
-  borderStyle: "solid",
-  backgroundColor: "black",
   display: "inline-block"
 };
 

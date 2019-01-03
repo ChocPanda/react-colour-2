@@ -9,8 +9,8 @@ import { getColours } from 'reducers/colours';
 import { getAnswer } from 'reducers/answer';
 
 const BoardStyle = {
-  margin: "auto",
-  width: "50%"
+  margin: "20px auto",
+  maxWidth: "700px"
 }
 
 class Game extends Component {

@@ -2,35 +2,42 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+body {
+  background-color: #232323 !important;
+  margin: 0;
+  font-family: "Montserrat", "Avenir";
 }
 
-.flexContainer {
-  justify-content: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h1 {
+  background-color: steelblue;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
   color: white;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  border: none;
+  background: inherit;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: inherit;
+  color: steelblue;
+  height: 100%;
+  letter-spacing: 2px;
+
+  transition: all 350ms;
+  --webkit-transition: all 350ms;
+  --moz-transition: all 350ms;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  background-color: steelblue;
+  color: white !important;
 }

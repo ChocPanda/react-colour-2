@@ -3,3 +3,5 @@ export const GameMode = {
   Normal: { string: "NORMAL", boardSize: 6 },
   Hard: { string: "HARD", boardSize: 9 }
 };
+
+export const defaultTextColour = "steelblue";
