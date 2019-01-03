@@ -1,29 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
-import _ from 'lodash';
+import React from "react";
+import PropTypes from "prop-types";
+import _ from "lodash";
 
-import { changeGameMode } from '../../../../reducers/mode'
+const GameModeBtn = ({ gameMode, onModeChange }) => (
+  <button
+    data-game-mode={gameMode}
+    className="gameModeBtn"
+    onClick={() => onModeChange(gameMode)}
+  >
+    {_.capitalize(gameMode)}
+  </button>
+);
 
-
-class GameModeButton extends Component {
-  render() {
-    const { gameMode, dispatch } = this.props;
-    
-    return (
-      <button
-        data-game-mode={gameMode}
-        className="gameModeBtn"
-        onClick={() => dispatch(changeGameMode(gameMode))}
-      >
-        {_.capitalize(gameMode)}
-      </button>
-    );
-  }
-}
-
-GameModeButton.propTypes = {
+GameModeBtn.propTypes = {
+  onModeChange: PropTypes.func.isRequired,
   gameMode: PropTypes.string.isRequired
 };
 
-export default connect()(GameModeButton);
+export default GameModeBtn;

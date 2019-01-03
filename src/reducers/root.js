@@ -1,20 +1,22 @@
 import { combineReducers } from "redux";
-import * as fromModes from "./mode";
+import { createSelector } from "reselect";
 
-const modeReducer = fromModes.reducer
+import modeReducer from "./mode";
+import coloursReducer, * as fromColours from "./colours";
+import answerIndexReducer, * as fromAnswers from "./answer";
 
-const rootReducer = combineReducers({ mode: modeReducer });
+export default combineReducers({
+  mode: modeReducer,
+  colours: coloursReducer,
+  answerIndex: answerIndexReducer
+});
 
-export default rootReducer;
+export const getGameOver = createSelector(
+  [fromAnswers.getAnswer],
+  answer => fromColours.getHasBeenGuessed(answer)
+);
 
-
-/********** Selectors **********/
-
-export const getGameMode = fromModes.getGameMode
-export const getGameBoardSize = fromModes.getGameBoardSize
-
-
-/********** Action Creators **********/
-
-export const resetGame = fromModes.resetGame
-
+export const getUserHasGuessed = createSelector(
+  fromColours.getColours,
+  colours => colours.some(fromColours.getHasBeenGuessed)
+);

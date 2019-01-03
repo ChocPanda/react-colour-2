@@ -1,22 +1,34 @@
 import React, { Component } from "react";
 
 const SquareStyle = {
-  width: "30%",
+  width: "25%",
   paddingBottom: "30%",
-  float: "left",
   margin: "1.6%",
   borderRadius: "25px",
   transition: "background-color 500ms",
   "--webkit-transition": "background-color 500ms",
   "--moz-transition": "background-color 500ms",
-  'borderStyle': 'solid'
+  borderStyle: "solid",
+  backgroundColor: "black",
+  display: "inline-block"
 };
 
 class Square extends Component {
   render() {
-    const { colour } = this.props
+    const { gameOver, answer, colour, onGuess } = this.props;
 
-    return <div style={{...SquareStyle, backgroundColor: colour}} />;
+    if (gameOver) {
+      return <div style={{ ...SquareStyle, backgroundColor: answer.colour }} />;
+    } else if (colour.isGuessed) {
+      return <div style={{ ...SquareStyle, backgroundColor: "transparent" }} />;
+    } else {
+      return (
+        <div
+          style={{ ...SquareStyle, backgroundColor: colour.colour }}
+          onClick={() => onGuess(colour, answer === colour)}
+        />
+      );
+    }
   }
 }
 

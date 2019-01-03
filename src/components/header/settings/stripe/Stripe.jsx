@@ -1,22 +1,38 @@
-import React, { Component } from "react";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import GameModeBtn from "../game-mode/GameModeBtn.jsx";
-import ResetBtn from "../reset/Reset.jsx";
+import GameModeBtn from '../game-mode/GameModeBtnComponent';
+import ResetBtn from '../reset/ResetBtnComponent';
+import { getGameOver, getUserHasGuessed } from 'reducers/root';
 
-import { GameMode } from "../../../../const";
+import { GameMode } from 'utils/const';
 
-class Stripe extends Component {
-  render() {
-    return (
-      <div id="stripe">
-        <ResetBtn />
-        <span id="messageDisplay" />
-        <GameModeBtn gameMode={GameMode.Easy} />
-        <GameModeBtn gameMode={GameMode.Normal} />
-        <GameModeBtn gameMode={GameMode.Hard} />
-      </div>
-    );
-  }
-}
+const Stripe = ({ isGameOver, hasGuessed }) => (
+  <div id="stripe" className="flexContainer">
+    <ResetBtn style={{ "justify-self": "start" }} />
+    <span style={{ justifySelf: "center" }}>
+      {isGameOver
+        ? "Correct, Well Done!"
+        : hasGuessed
+        ? "Unlucky, try again"
+        : ""}
+    </span>
+    {Object.values(GameMode).map(({ mode }) => { return (
+      <GameModeBtn key={mode} gameMode={mode} style={{ justifySelf: "right" }}/>
+    )})}
+  </div>
+);
 
-export default Stripe;
+Stripe.propTypes = {
+  isGameOver: PropTypes.bool.isRequired,
+  hasGuessed: PropTypes.bool
+};
+Stripe.defaultProps = { hasGuessed: false };
+
+const mapStateToProps = state => ({
+  isGameOver: getGameOver(state),
+  hasGuessed: getUserHasGuessed(state)
+});
+
+export default connect(mapStateToProps)(Stripe);
