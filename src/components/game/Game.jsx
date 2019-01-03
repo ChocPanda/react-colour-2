@@ -18,7 +18,7 @@ class Game extends Component {
     const { colours } = this.props;
 
     return (
-      <div style={BoardStyle} className="flexContainer">
+      <div style={BoardStyle}>
         {colours.map((colour, key) => (
           <Square key={key} colour={colour} />
         ))}

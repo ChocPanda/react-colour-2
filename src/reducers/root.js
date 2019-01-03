@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
-import { createSelector } from "reselect";
+import { combineReducers } from 'redux';
+import { createSelector } from 'reselect';
 
-import modeReducer from "./mode";
-import coloursReducer, * as fromColours from "./colours";
-import answerIndexReducer, * as fromAnswers from "./answer";
+import modeReducer from './mode';
+import coloursReducer, * as fromColours from './colours';
+import answerIndexReducer, * as fromAnswers from './answer';
 
 export default combineReducers({
   mode: modeReducer,

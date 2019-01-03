@@ -1,4 +1,4 @@
-import * as Actions from "action-creators/actions";
+import * as Actions from 'action-creators/actions';
 
 const zeroFilled = (n, str) => {
   return "0".repeat(n - str.length) + str;

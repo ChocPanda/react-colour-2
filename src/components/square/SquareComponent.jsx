@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 
-import Square from "./Square";
+import Square from './Square';
 import { guessSquare } from 'action-creators/actionCreators';
-import { getGameOver } from "reducers/root";
+import { getGameOver } from 'reducers/root';
 import { getAnswer } from 'reducers/answer'
 
 const mapStateToProps = state => ({

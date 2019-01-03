@@ -1,15 +1,14 @@
-import { connect } from "react-redux";
-import React from "react";
-import PropTypes from "prop-types";
-import _ from "lodash";
+import { connect } from 'react-redux';
+import React from 'react';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
 
-import { changeGameMode } from "action-creators/actionCreators";
-import { getMode } from "reducers/mode";
-import { getAnswer } from "reducers/answer";
-import { getColour } from "reducers/colours";
-import { getGameOver } from "reducers/root";
-
-const defaultStyle = { alignItems: "flex-start" };
+import { changeGameMode } from 'action-creators/actionCreators';
+import { getMode } from 'reducers/mode';
+import { getAnswer } from 'reducers/answer';
+import { getColour } from 'reducers/colours';
+import { getGameOver } from 'reducers/root';
+import { defaultTextColour } from 'utils/const'
 
 const GameModeBtn = ({
   gameMode,
@@ -21,16 +20,13 @@ const GameModeBtn = ({
   const ButtonStyle =
     currentMode === gameMode
       ? {
-          ...defaultStyle,
-          backgroundColor: isGameOver ? answer : "steelblue",
+          backgroundColor: isGameOver ? answer : defaultTextColour,
           color: "white"
         }
-      : { ...defaultStyle, color: isGameOver ? answer : "" };
+      : { color: isGameOver ? answer : "" };
 
   return (
     <button
-      data-game-mode={gameMode}
-      className="gameModeBtn"
       onClick={() => onModeChange(gameMode)}
       style={ButtonStyle}
     >

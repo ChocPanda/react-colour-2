@@ -1,13 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { getGameOver } from "reducers/root";
-import { getMode } from "reducers/mode";
+import { getGameOver } from 'reducers/root';
+import { getMode } from 'reducers/mode';
 import { getAnswer } from 'reducers/answer';
 import { getColour } from 'reducers/colours';
-import { resetGame } from "action-creators/actionCreators";
-import { defaultTextColour } from "utils/const";
+import { resetGame } from 'action-creators/actionCreators';
+import { defaultTextColour } from 'utils/const';
 
 const ResetBtn = ({ mode, onReset, isGameOver, answerColour }) => (
   <button

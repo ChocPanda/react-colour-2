@@ -1,12 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import GameModeBtn from "../game-mode/GameModeBtnComponent";
-import ResetBtn from "../reset/ResetBtnComponent";
-import { getGameOver, getUserHasGuessed } from "reducers/root";
+import GameModeBtn from '../game-mode/GameModeBtnComponent';
+import ResetBtn from '../reset/ResetBtnComponent';
+import { getGameOver, getUserHasGuessed } from 'reducers/root';
+import { GameMode } from 'utils/const';
 
-import { GameMode } from "utils/const";
 const StripeStyle = {
   backgroundColor: "white",
   textAlign: "center",
@@ -15,8 +15,8 @@ const StripeStyle = {
 
 const Stripe = ({ isGameOver, hasGuessed }) => (
   <div style={StripeStyle}>
-    <ResetBtn style={{ alignItems: "flex-start" }} />
-    <span style={{display: "inline-block", width: "20%"}}>
+    <ResetBtn />
+    <span style={{display: "inline-block", width: "30%"}}>
       {isGameOver
         ? "Correct, Well Done!"
         : hasGuessed
