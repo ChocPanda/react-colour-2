@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import GameModeBtn from '../game-mode/GameModeBtnComponent';
-import ResetBtn from '../reset/ResetBtnComponent';
+import ResetBtn from '../reset/ResetBtn';
 import { getGameOver, getUserHasGuessed } from 'reducers/root';
 import { GameMode } from 'utils/const';
 
