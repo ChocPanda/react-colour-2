@@ -1,29 +1,17 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from "react";
 
-import GameHeader from '../header/GameHeaderComponent';
-import Game from '../game/Game';
+import GameHeader from "components/game-header";
+import Game from "components/game";
+import Stripe from "components/stripe";
 
-import './App.css';
+import "./App.css";
 
-class App extends Component {
-  render() {
-    const { store } = this.props;
-
-    return (
-      <Provider store={store}>
-        <div className="App">
-          <GameHeader />
-          <Game />
-        </div>
-      </Provider>
-    );
-  }
-}
-
-App.propTypes = {
-  store: PropTypes.object.isRequired
-};
+const App = () => (
+  <div className="App">
+    <GameHeader />
+    <Stripe />
+    <Game />
+  </div>
+);
 
 export default App;

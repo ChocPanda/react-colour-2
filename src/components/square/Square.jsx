@@ -1,4 +1,8 @@
-import React, { Component } from 'react';
+import React from "react";
+import { connect } from "react-redux";
+
+import * as Actions from "./actions";
+import { selectors as gameSelectors } from "components/game";
 
 const SquareStyle = {
   width: "25%",
@@ -11,23 +15,33 @@ const SquareStyle = {
   display: "inline-block"
 };
 
-class Square extends Component {
-  render() {
-    const { gameOver, answer, colour, onGuess } = this.props;
-
-    if (gameOver) {
-      return <div style={{ ...SquareStyle, backgroundColor: answer.colour }} />;
-    } else if (colour.isGuessed) {
-      return <div style={{ ...SquareStyle, backgroundColor: "transparent" }} />;
-    } else {
-      return (
-        <div
-          style={{ ...SquareStyle, backgroundColor: colour.colour }}
-          onClick={() => onGuess(colour, answer === colour)}
-        />
-      );
-    }
+const Square = ({ gameOver, answer, colour, onGuess }) => {
+  if (gameOver) {
+    return <div style={{ ...SquareStyle, backgroundColor: answer.string }} />;
+  } else if (colour.isGuessed) {
+    return <div style={{ ...SquareStyle, backgroundColor: "transparent" }} />;
+  } else {
+    return (
+      <div
+        style={{ ...SquareStyle, backgroundColor: colour.string }}
+        onClick={() => { 
+          onGuess(colour.string, answer === colour);
+        }}
+      />
+    );
   }
-}
+};
 
-export default Square;
+const mapStateToProps = state => ({
+  answer: gameSelectors.getAnswer(state),
+  gameOver: gameSelectors.getGameOver(state)
+});
+
+const mapDispatchToProps = {
+  onGuess: (colour, isCorrect) => Actions.guessSquare(colour, isCorrect)
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Square);

@@ -3,7 +3,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import rootReducer from '../reducers/root';
+import { reducer } from 'components/app';
 
 const configureStore = initState => {
   const middleWare = [thunk];
@@ -12,7 +12,7 @@ const configureStore = initState => {
   }
 
   const store = createStore(
-    rootReducer,
+    reducer,
     initState,
     composeWithDevTools(applyMiddleware(...middleWare))
   );
