@@ -1,1 +1,1 @@
-export const CHANGE_GAME_MODE = "mode/CHANGE_GAME_MODE";
+export const ChangeGameMode = "mode/CHANGE_GAME_MODE";

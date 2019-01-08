@@ -1,1 +1,1 @@
-export const RESET_GAME = "mode/RESET_GAME";
+export const ResetGame = "reset/RESET_GAME";

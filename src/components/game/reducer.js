@@ -6,12 +6,13 @@ export const InitialState = { squares: [], answerIndex: 0 };
 
 export default (state = InitialState, action) => {
   switch (action.type) {
-    case ModeTypes.CHANGE_GAME_MODE:
-    case ResetTypes.RESET_GAME:
-      return (state = {
+    case ModeTypes.ChangeGameMode:
+    case ResetTypes.ResetGame:
+      return {
+        ...state,
         squares: action.squares,
         answerIndex: action.answer
-      });
+      };
     default:
       return {
         ...state,
