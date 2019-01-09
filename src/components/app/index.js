@@ -1,7 +1,6 @@
 import App from "./App";
 import reducer from "./reducer";
 import * as Actions from "./actions";
+import * as selectors from "./selectors";
 
-export default App;
-
-export { reducer, Actions };
+export { App as default, Actions, reducer, selectors };

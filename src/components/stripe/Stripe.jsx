@@ -30,10 +30,10 @@ const Stripe = ({ isGameOver, hasGuessed }) => (
 );
 
 Stripe.propTypes = {
-  isGameOver: PropTypes.bool.isRequired,
+  isGameOver: PropTypes.bool,
   hasGuessed: PropTypes.bool
 };
-Stripe.defaultProps = { hasGuessed: false };
+Stripe.defaultProps = { hasGuessed: false, isGameOver: false };
 
 const mapStateToProps = state => ({
   isGameOver: gameSelectors.getGameOver(state),

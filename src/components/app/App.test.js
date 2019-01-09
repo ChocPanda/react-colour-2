@@ -1,9 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import renderer from "react-test-renderer";
+import { Provider } from "react-redux";
 
-test('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import App from "./App";
+import { configureTestStore } from "utils/test-tools";
+
+test("renders without crashing", () => {
+  renderer.create(
+    <Provider store={configureTestStore()}>
+      <App />
+    </Provider>
+  );
 });

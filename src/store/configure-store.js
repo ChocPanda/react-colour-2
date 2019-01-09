@@ -1,12 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
-import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { reducer } from 'components/app';
+import { reducer, Actions } from 'components/app';
 
 const configureStore = initState => {
-  const middleWare = [thunk];
+  const middleWare = [];
   if (process.env.NODE_ENV !== "production") {
     middleWare.push(logger);
   }
@@ -16,6 +15,8 @@ const configureStore = initState => {
     initState,
     composeWithDevTools(applyMiddleware(...middleWare))
   );
+
+  store.dispatch(Actions.initialiseGame());
 
   return store;
 };

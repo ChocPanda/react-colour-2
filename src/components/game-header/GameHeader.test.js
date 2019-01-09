@@ -1,9 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Header from './GameHeader';
+import React from "react";
+import renderer from "react-test-renderer";
+import { Provider } from "react-redux";
 
-test('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Header />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import GameHeader from "./GameHeader";
+import { configureTestStore } from "utils/test-tools";
+
+describe("Component", () => {
+  test("renders without crashing", () => {
+    renderer.create(
+      <Provider store={configureTestStore()}>
+        <GameHeader />
+      </Provider>
+    );
+  });
 });

@@ -1,9 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Square from './Square';
+import React from "react";
+import renderer from "react-test-renderer";
+import each from "jest-each";
 
-test('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Square />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import { Provider } from "react-redux";
+import { configureTestStore } from "utils/test-tools";
+
+import Square from "./Square";
+
+describe("Component", () => {
+  each([true, false]).test("renders without crashing", isGuessed => {
+    renderer.create(
+      <Provider store={configureTestStore()}>
+        <Square colour={{ string: "rgb(255, 255, 255)", isGuessed }} />
+      </Provider>
+    );
+  });
 });
