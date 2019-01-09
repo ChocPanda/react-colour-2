@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { getColours } from "./selectors";
+import { getColourStrings } from "./selectors";
 import Square from "components/square";
 
 const BoardStyle = {
@@ -23,7 +23,7 @@ Game.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  colours: getColours(state)
+  colours: getColourStrings(state)
 });
 
 export default connect(mapStateToProps)(Game);

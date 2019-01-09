@@ -30,7 +30,7 @@ GameHeader.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  answerColour: squareSelectors.getColour(gameSelectors.getAnswer(state)),
+  answerColour: squareSelectors.getColourString(gameSelectors.getAnswer(state)),
   isGameOver: gameSelectors.getGameOver(state)
 });
 

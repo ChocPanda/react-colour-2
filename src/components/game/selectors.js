@@ -2,7 +2,7 @@ import { createSelector } from "reselect";
 import { selectors as squareSelectors } from "components/square";
 import * as appSelectors from "components/app/selectors";
 
-export const getColours = createSelector(
+export const getColourStrings = createSelector(
   appSelectors.getGame,
   game => game.squares
 );
@@ -13,7 +13,7 @@ export const getAnswerIndex = createSelector(
 );
 
 export const getAnswer = createSelector(
-  [getAnswerIndex, getColours],
+  [getAnswerIndex, getColourStrings],
   (index, colours) => colours[index]
 );
 
@@ -23,6 +23,6 @@ export const getGameOver = createSelector(
 );
 
 export const getUserHasGuessed = createSelector(
-  getColours,
+  getColourStrings,
   colours => colours.some(squareSelectors.getIsGuessed)
 );

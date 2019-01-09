@@ -27,7 +27,7 @@ ResetBtn.propTypes = {
 const mapStateToProps = state => ({
   mode: settingsSelectors.getMode(state),
   isGameOver: gameSelectors.getGameOver(state),
-  answerColour: squareSelectors.getColour(gameSelectors.getAnswer(state))
+  answerColour: squareSelectors.getColourString(gameSelectors.getAnswer(state))
 });
 
 const mapDispatchToProps = dispatch => ({

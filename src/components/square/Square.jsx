@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import * as Actions from "./actions";
 import { selectors as gameSelectors } from "components/game";
+import { selectors as squareSelectors } from "components/square";
 
 const SquareStyle = {
   width: "25%",
@@ -17,15 +18,25 @@ const SquareStyle = {
 
 const Square = ({ gameOver, answer, colour, onGuess }) => {
   if (gameOver) {
-    return <div style={{ ...SquareStyle, backgroundColor: answer.string }} />;
+    return (
+      <div
+        style={{
+          ...SquareStyle,
+          backgroundColor: squareSelectors.getColourString(answer)
+        }}
+      />
+    );
   } else if (colour.isGuessed) {
     return <div style={{ ...SquareStyle, backgroundColor: "transparent" }} />;
   } else {
     return (
       <div
-        style={{ ...SquareStyle, backgroundColor: colour.string }}
-        onClick={() => { 
-          onGuess(colour.string, answer === colour);
+        style={{
+          ...SquareStyle,
+          backgroundColor: squareSelectors.getColourString(colour)
+        }}
+        onClick={() => {
+          onGuess(squareSelectors.getColourString(colour), answer === colour);
         }}
       />
     );

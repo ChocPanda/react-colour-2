@@ -42,7 +42,7 @@ GameModeBtn.propTypes = {
 
 const mapStateToProps = state => ({
   currentMode: settingsSelectors.getMode(state),
-  answerColour: squareSelectors.getColour(gameSelectors.getAnswer(state)),
+  answerColour: squareSelectors.getColourString(gameSelectors.getAnswer(state)),
   isGameOver: gameSelectors.getGameOver(state)
 });
 

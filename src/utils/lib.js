@@ -1,5 +1,3 @@
-
-
 const zeroFilled = (n, str) => {
   return "0".repeat(n - str.length) + str;
 };
@@ -27,7 +25,7 @@ export const generateColours = length => {
     const colourStr =
       "#" + zeroFilled(6, randColour.toString(16).toUpperCase());
 
-    return { string: hexToRgb(colourStr), isGuessed: false };
+    return { colourString: hexToRgb(colourStr), isGuessed: false };
   });
 };
 
